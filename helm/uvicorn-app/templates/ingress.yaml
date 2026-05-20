@@ -1,8 +1,7 @@
-{{- if .Values.ingress.enabled }}
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "uvicorn-app.fullname" . }}
+  name: uvicorn-app
   annotations:
     kubernetes.io/ingress.class: "{{ .Values.ingress.className }}"
     kubernetes.io/ingress.regional-static-ip-name: "{{ .Values.ingress.staticIpName }}"
@@ -14,7 +13,6 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: {{ include "uvicorn-app.fullname" . }}
+                name: uvicorn-app
                 port:
                   number: {{ .Values.service.port }}
-{{- end }}
