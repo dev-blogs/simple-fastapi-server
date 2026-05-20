@@ -1,21 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "uvicorn-app.fullname" . }}
+  name: uvicorn-app
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "uvicorn-app.name" . }}
+      app: uvicorn-app
   template:
     metadata:
       labels:
-        app: {{ include "uvicorn-app.name" . }}
+        app: uvicorn-app
     spec:
       containers:
         - name: app
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+
           ports:
             - containerPort: 8081
 

@@ -10,7 +10,6 @@ service:
   targetPort: 8081
 
 ingress:
-  enabled: true
   className: gce-internal
   staticIpName: my-internal-ip
   path: /
