@@ -5,9 +5,15 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: "{{ .Values.ingress.className }}"
     kubernetes.io/ingress.regional-static-ip-name: "{{ .Values.ingress.staticIpName }}"
+    kubernetes.io/ingress.allow-http: "false"
 spec:
+  tls:
+    - hosts:
+        - api.example.com
+      secretName: my-tls-secret
   rules:
-    - http:
+    - host: api.example.com
+      http:
         paths:
           - path: {{ .Values.ingress.path }}
             pathType: Prefix
