@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-proxy
+
+  annotations:
+    networking.gke.io/load-balancer-type: "Internal"
+
+spec:
+  type: LoadBalancer
+
+  loadBalancerIP: {{ .Values.nginx.internalIp }}
+
+  selector:
+    app: nginx-proxy
+
+  ports:
+    - name: https
+      protocol: TCP
+      port: 443
+      targetPort: 443

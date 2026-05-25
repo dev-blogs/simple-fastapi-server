@@ -9,10 +9,8 @@ service:
   port: 80
   targetPort: 8081
 
-ingress:
-  className: gce-internal
-  staticIpName: my-internal-ip
-  path: /
+nginx:
+  internalIp: 10.128.15.199
 
 resources: {}
 
