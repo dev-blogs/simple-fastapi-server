@@ -1,0 +1,13 @@
+replicaCount: 1
+
+image:
+  repository: us-central1-docker.pkg.dev/cert-project-492718/mcp/https-proxy
+  tag: latest
+  pullPolicy: Always
+
+service:
+  type: LoadBalancer
+  port: 443
+  targetPort: 443
+ 
+internalIp: 10.128.15.208 

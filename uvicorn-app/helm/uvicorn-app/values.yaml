@@ -9,11 +9,6 @@ service:
   port: 80
   targetPort: 8081
 
-nginx:
-  internalIp: 10.128.15.199
-
-resources: {}
-
 readinessProbe:
   path: /health
   port: 8081
