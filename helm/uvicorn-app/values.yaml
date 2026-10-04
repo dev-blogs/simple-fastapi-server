@@ -2,7 +2,7 @@ replicaCount: 3
 
 image:
   repository: us-central1-docker.pkg.dev/cert-project-492718/mcp/uvicorn-app
-  tag: v1
+  tag: v2
   pullPolicy: IfNotPresent
 
 service:
@@ -10,9 +10,10 @@ service:
   targetPort: 8081
 
 app:
-  version: blue
+  version: green
 
 service:
+  enabled: false
   type: LoadBalancer
   port: 80
   targetPort: 8081
