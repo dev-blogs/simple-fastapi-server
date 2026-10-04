@@ -5,10 +5,6 @@ image:
   tag: v2
   pullPolicy: IfNotPresent
 
-service:
-  port: 80
-  targetPort: 8081
-
 app:
   version: green
 
