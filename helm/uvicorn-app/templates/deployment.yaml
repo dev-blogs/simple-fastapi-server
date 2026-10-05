@@ -2,15 +2,25 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: uvicorn-app
+
 spec:
   replicas: {{ .Values.replicaCount }}
+  
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  
   selector:
     matchLabels:
       app: uvicorn-app
+  
   template:
     metadata:
       labels:
         app: uvicorn-app
+    
     spec:
       containers:
         - name: app

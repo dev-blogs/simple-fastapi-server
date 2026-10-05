@@ -8,4 +8,4 @@ def health():
 
 @app.get("/")
 def root():
-    return {"ok": True}
+    return {"ok": "v1"}

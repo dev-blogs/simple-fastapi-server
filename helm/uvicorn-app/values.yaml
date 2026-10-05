@@ -1,18 +1,14 @@
-replicaCount: 1
+replicaCount: 5
 
 image:
   repository: us-central1-docker.pkg.dev/cert-project-492718/mcp/uvicorn-app
-  tag: latest
+  tag: v1
   pullPolicy: IfNotPresent
 
 service:
+  type: LoadBalancer
   port: 80
   targetPort: 8081
-
-ingress:
-  className: gce-internal
-  staticIpName: my-internal-ip
-  path: /
 
 resources: {}
 
