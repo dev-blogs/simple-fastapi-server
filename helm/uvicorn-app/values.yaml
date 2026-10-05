@@ -2,7 +2,7 @@ replicaCount: 5
 
 image:
   repository: us-central1-docker.pkg.dev/cert-project-492718/mcp/uvicorn-app
-  tag: v1
+  tag: v2
   pullPolicy: IfNotPresent
 
 service:
