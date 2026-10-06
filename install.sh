@@ -1,1 +1,1 @@
-helm install uvicorn helm/uvicorn-app
+helm install uvicorn-app helm/uvicorn-app
