@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: uvicorn-app
+  name: uvicorn-app-v1
 
 spec:
   replicas: {{ .Values.replicaCount }}
@@ -15,12 +15,13 @@ spec:
   selector:
     matchLabels:
       app: uvicorn-app
+      version: v1
   
   template:
     metadata:
       labels:
         app: uvicorn-app
-        version: {{ .Values.image.tag }}
+        version: v1
     
     spec:
       containers:
