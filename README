@@ -4,7 +4,7 @@
 return {"ok": "v1"} -> return {"ok": "v2"}
 
 4. ./build.sh v2
-5. ./build.sh v2
+5. ./push_to_artifactory.sh v2
 
 6. ./install.sh v1
 7. ./install.sh v2
