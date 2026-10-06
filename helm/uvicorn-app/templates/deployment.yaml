@@ -15,7 +15,6 @@ spec:
   selector:
     matchLabels:
       app: uvicorn-app
-      version: {{ .Values.image.tag }}
   
   template:
     metadata:
