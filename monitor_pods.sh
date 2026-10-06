@@ -1,1 +1,1 @@
-kubectl get pods -w
+kubectl get pods -w -L version
