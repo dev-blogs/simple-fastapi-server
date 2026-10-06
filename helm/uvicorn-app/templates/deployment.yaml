@@ -15,11 +15,13 @@ spec:
   selector:
     matchLabels:
       app: uvicorn-app
+      version: {{ .Values.image.tag }}
   
   template:
     metadata:
       labels:
         app: uvicorn-app
+        version: {{ .Values.image.tag }}
     
     spec:
       containers:
