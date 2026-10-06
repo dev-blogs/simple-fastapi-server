@@ -1,1 +1,1 @@
-helm uninstall $1
+helm uninstall uvicorn-app-$1

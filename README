@@ -1,0 +1,39 @@
+1. ./build.sh v1
+2. ./push_to_artifactory.sh v1
+3. Change src/app.py:
+return {"ok": "v1"} -> return {"ok": "v2"}
+
+3. ./build.sh v2
+4. ./build.sh v2
+
+5. ./install.sh v1
+6. ./install.sh v2
+
+7. kubectl get service
+
+8. Enter to pod and check services with curl:
+kubectl run curl-test --image=curlimages/curl -it --rm -- sh
+> curl http://<SERVICE-1-IP>
+> curl http://<SERVICE-2-IP>
+
+9. Apply gateway
+cd gatewayclass
+./apply-gateway.sh 
+
+10. kubectl get gateway
+Example:
+NAME              CLASS                            ADDRESS         PROGRAMMED   AGE
+uvicorn-gateway   gke-l7-global-external-managed   136.69.22.221   True         103s
+
+11. Apply httprouter
+./apply-httprouter.sh
+
+12. kubectl describe httproute uvicorn-route
+
+13. cd gatewayclass/testing
+./distribute.sh <GATEWAY_IP>
+
+14. Check results
+Example:
+91 {"ok":"v1"}
+9 {"ok":"v2"}
